@@ -1,9 +1,11 @@
-import './App.css';
+import Header from './components/Header';
+import TaskBoard from './components/TaskBoard';
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <Header />
+      <TaskBoard />
     </>
   );
 }
