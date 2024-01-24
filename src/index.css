@@ -61,6 +61,16 @@ ul, li, input {
   text-decoration-color: var(--error-color);
 }
 
+.no-tasks {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.no-tasks img {
+  width: 400px;
+  max-width: 100%;
+}
+
 input[type="text"] {
   font-family: Roboto, sans-serif;
   width: 100%;
