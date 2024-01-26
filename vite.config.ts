@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   resolve: {
     alias: {
-      '@variables': '/src/scss/variables.scss'
-    }
+      '@variables': '/src/scss/variables.scss',
+    },
   },
   plugins: [react()],
 });

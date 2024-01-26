@@ -1,6 +1,5 @@
 import './task-board.scss';
 import { useState } from 'react';
-import TaskInput from '../TaskInput';
 import { ITask } from '../../types/tasksTypes';
 import TaskList from '../task-list/TaskList';
 import Input from '../ui/input/Input';

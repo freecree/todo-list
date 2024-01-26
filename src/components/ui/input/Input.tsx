@@ -8,9 +8,12 @@ interface InputProps {
 }
 
 function Input({ value, onChange, onSubmit }: InputProps) {
+  function isValid() {
+    return value.trim().length > 0;
+  }
   function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key === 'Enter') {
-      onSubmit(value);
+    if (event.key === 'Enter' && isValid()) {
+      onSubmit(value.trim());
     }
   }
   return (
