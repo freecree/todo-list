@@ -8,19 +8,19 @@ function TaskBoard() {
   const [taskValue, setTaskValue] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  function handleAddTask(value: string) {
+  const handleAddTask = (value: string) => {
     setTaskValue('');
     setTasks([...tasks, { value: value, checked: false }]);
-  }
+  };
 
-  function handleCheckTask(index: number) {
+  const handleCheckTask = (index: number) => {
     const nextTasks = [
       ...tasks.slice(0, index),
       { ...tasks[index], checked: !tasks[index].checked },
       ...tasks.slice(index + 1),
     ];
     setTasks(nextTasks);
-  }
+  };
 
   return (
     <div className='taskboard wrapper'>

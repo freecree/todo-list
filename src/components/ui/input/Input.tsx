@@ -8,14 +8,14 @@ interface InputProps {
 }
 
 function Input({ value, onChange, onSubmit }: InputProps) {
-  function isValid() {
+  const isValid = () => {
     return value.trim().length > 0;
-  }
-  function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
+  };
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && isValid()) {
       onSubmit(value.trim());
     }
-  }
+  };
   return (
     <input
       value={value}

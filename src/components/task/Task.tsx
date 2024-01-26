@@ -9,17 +9,17 @@ interface TaskProps {
 }
 
 function Task({ task, onTaskCheck }: TaskProps) {
-  function handleClick(e: React.MouseEvent<HTMLElement>) {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     onTaskCheck();
     e.stopPropagation();
-  }
+  };
   return (
     <div
       className={`task-item ${task.checked ? 'checked' : ''}`}
       onClick={handleClick}
     >
       <div>{task.value}</div>
-      <Checkbox isChecked={task.checked} onChange={onTaskCheck} />
+      <Checkbox isChecked={task.checked} />
     </div>
   );
 }
