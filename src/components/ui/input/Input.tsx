@@ -4,13 +4,13 @@ import { KeyboardEvent } from 'react';
 interface InputProps {
   value: string;
   onChange: (value: string) => void;
-  onSubmit: () => void;
+  onSubmit: (value: string) => void;
 }
 
 function Input({ value, onChange, onSubmit }: InputProps) {
   function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {
-      onSubmit();
+      onSubmit(value);
     }
   }
   return (

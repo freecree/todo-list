@@ -3,11 +3,14 @@ import { useState } from 'react';
 import TaskInput from '../TaskInput';
 import { ITask } from '../../types/tasksTypes';
 import TaskList from '../task-list/TaskList';
+import Input from '../ui/input/Input';
 
 function TaskBoard() {
+  const [taskValue, setTaskValue] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([]);
 
   function handleAddTask(value: string) {
+    setTaskValue('');
     setTasks([...tasks, { value: value, checked: false }]);
   }
 
@@ -22,7 +25,11 @@ function TaskBoard() {
 
   return (
     <div className='taskboard wrapper'>
-      <TaskInput onAddTask={handleAddTask} />
+      <Input
+        value={taskValue}
+        onChange={setTaskValue}
+        onSubmit={handleAddTask}
+      />
       <TaskList onTaskCheck={handleCheckTask} tasks={tasks} />
     </div>
   );
