@@ -1,7 +1,8 @@
+import './task-board.scss';
 import { useState } from 'react';
-import TaskInput from './TaskInput';
-import { ITask } from '../types/tasksTypes';
-import TaskList from './TaksList';
+import TaskInput from '../TaskInput';
+import { ITask } from '../../types/tasksTypes';
+import TaskList from '../task-list/TaskList';
 
 function TaskBoard() {
   const [tasks, setTasks] = useState<ITask[]>([]);

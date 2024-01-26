@@ -1,5 +1,5 @@
-import Header from './components/Header';
-import TaskBoard from './components/TaskBoard';
+import Header from './components/header/Header';
+import TaskBoard from './components/task-board/TaskBoard';
 
 function App() {
   return (

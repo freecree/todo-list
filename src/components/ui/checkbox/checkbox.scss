@@ -1,10 +1,12 @@
+@import '@variables';
+
 /* Customize the label (the checkbox-wrapper) */
 .checkbox-wrapper {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
   cursor: pointer;
+  height: 25px;
+  width: 25px;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -27,9 +29,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+  height: 100%;
+  width: 100%;
+  background-color: $grey-color;
 }
 
 /* On mouse-over*/
@@ -39,7 +41,7 @@
 
 /* When the checkbox is checked*/
 .checkbox-wrapper input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: $primary-color;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

@@ -1,0 +1,18 @@
+@import '@variables';
+
+input[type="text"] {
+  font-family: Roboto, sans-serif;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid $secondary-color;
+  background-color: $grey-color;
+  color: $text-color;
+}
+
+input[type="text"]:focus, input[type="text"]:hover {
+  border: none;
+  border-bottom: 2px solid $primary-color;
+  outline: none;
+}

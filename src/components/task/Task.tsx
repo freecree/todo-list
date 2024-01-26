@@ -1,6 +1,7 @@
+import './task.scss';
 import React from 'react';
-import { ITask } from '../types/tasksTypes';
-import Checkbox from './ui/Checkbox';
+import { ITask } from '../../types/tasksTypes';
+import Checkbox from '../ui/checkbox/Checkbox';
 
 interface TaskProps {
   task: ITask;

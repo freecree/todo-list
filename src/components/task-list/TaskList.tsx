@@ -1,6 +1,7 @@
-import { ITask } from '../types/tasksTypes';
-import Task from './Task';
-import dogImage from '../assets/dog.png';
+import './task-list.scss';
+import { ITask } from '../../types/tasksTypes';
+import Task from '../task/Task';
+import dogImage from '../../assets/dog.png';
 
 interface TaskListProps {
   tasks: ITask[];

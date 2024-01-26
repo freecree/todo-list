@@ -1,3 +1,4 @@
+import './input.scss';
 import { KeyboardEvent } from 'react';
 
 interface InputProps {
