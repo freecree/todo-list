@@ -10,16 +10,15 @@ function TaskBoard() {
 
   const handleAddTask = (value: string) => {
     setTaskValue('');
-    setTasks([...tasks, { value: value, checked: false }]);
+    setTasks((tasks) => [...tasks, { value: value, checked: false }]);
   };
 
   const handleCheckTask = (index: number) => {
-    const nextTasks = [
+    setTasks((tasks) => [
       ...tasks.slice(0, index),
       { ...tasks[index], checked: !tasks[index].checked },
       ...tasks.slice(index + 1),
-    ];
-    setTasks(nextTasks);
+    ]);
   };
 
   return (
