@@ -10,14 +10,14 @@ function TaskBoard() {
 
   const handleAddTask = (value: string) => {
     setTaskValue('');
-    setTasks((tasks) => [...tasks, { value: value, checked: false }]);
+    setTasks((prevTasks) => [...prevTasks, { value: value, checked: false }]);
   };
 
   const handleCheckTask = (index: number) => {
-    setTasks((tasks) => [
-      ...tasks.slice(0, index),
-      { ...tasks[index], checked: !tasks[index].checked },
-      ...tasks.slice(index + 1),
+    setTasks((prevTasks) => [
+      ...prevTasks.slice(0, index),
+      { ...prevTasks[index], checked: !prevTasks[index].checked },
+      ...prevTasks.slice(index + 1),
     ]);
   };
 

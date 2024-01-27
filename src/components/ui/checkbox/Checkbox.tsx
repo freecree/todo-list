@@ -2,19 +2,12 @@ import './checkbox.scss';
 
 interface CheckboxProps {
   isChecked: boolean;
-  onChange?: () => void;
 }
 
-function Checkbox({ isChecked, onChange }: CheckboxProps) {
-  const handleChange = () => {
-    if (onChange) {
-      onChange();
-    }
-  };
-
+function Checkbox({ isChecked }: CheckboxProps) {
   return (
     <label className='checkbox-wrapper'>
-      <input checked={isChecked} onChange={handleChange} type='checkbox' />
+      <input checked={isChecked} type='checkbox' />
       <span
         onClick={(e) => {
           e.stopPropagation();
