@@ -1,19 +1,19 @@
 import './task-board.scss';
-import { useState } from 'react';
-import { ITask } from '../../types/tasksTypes';
-import TaskList from '../task-list/TaskList';
-import Input from '../ui/input/Input';
+import { FC, useState } from 'react';
+import { ITask } from '../../types/tasks-types';
+import TaskList from '../task-list/task-list';
+import Input from '../ui/input/input';
 
-function TaskBoard() {
+const TaskBoard: FC = () => {
   const [taskValue, setTaskValue] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  const handleAddTask = (value: string) => {
+  const handleAddTask = (value: string): void => {
     setTaskValue('');
-    setTasks((prevTasks) => [...prevTasks, { value: value, checked: false }]);
+    setTasks((prevTasks) => [...prevTasks, { value, checked: false }]);
   };
 
-  const handleCheckTask = (index: number) => {
+  const handleCheckTask = (index: number): void => {
     setTasks((prevTasks) => [
       ...prevTasks.slice(0, index),
       { ...prevTasks[index], checked: !prevTasks[index].checked },
@@ -31,6 +31,6 @@ function TaskBoard() {
       <TaskList onTaskCheck={handleCheckTask} tasks={tasks} />
     </div>
   );
-}
+};
 
 export default TaskBoard;

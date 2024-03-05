@@ -1,17 +1,16 @@
 import './task.scss';
-import React from 'react';
-import { ITask } from '../../types/tasksTypes';
-import Checkbox from '../ui/checkbox/Checkbox';
+import React, { FC } from 'react';
+import { ITask } from '../../types/tasks-types';
+import Checkbox from '../ui/checkbox/checkbox';
 
 interface TaskProps {
   task: ITask;
   onTaskCheck: () => void;
 }
-
-function Task({ task, onTaskCheck }: TaskProps) {
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+const Task: FC<TaskProps> = ({ task, onTaskCheck }) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
     onTaskCheck();
-    e.stopPropagation();
+    event.stopPropagation();
   };
   return (
     <div
@@ -22,6 +21,6 @@ function Task({ task, onTaskCheck }: TaskProps) {
       <Checkbox isChecked={task.checked} />
     </div>
   );
-}
+};
 
 export default Task;

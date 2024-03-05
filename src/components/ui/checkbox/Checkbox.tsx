@@ -1,21 +1,22 @@
 import './checkbox.scss';
+import { FC } from 'react';
 
 interface CheckboxProps {
   isChecked: boolean;
 }
 
-function Checkbox({ isChecked }: CheckboxProps) {
+const Checkbox: FC<CheckboxProps> = ({ isChecked }) => {
   return (
     <label className='checkbox-wrapper'>
       <input checked={isChecked} type='checkbox' />
       <span
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={(event) => {
+          event.stopPropagation();
         }}
         className='checkmark'
       ></span>
     </label>
   );
-}
+};
 
 export default Checkbox;

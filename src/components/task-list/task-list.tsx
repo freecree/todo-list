@@ -1,18 +1,19 @@
 import './task-list.scss';
-import { ITask } from '../../types/tasksTypes';
-import Task from '../task/Task';
+import { ITask } from '../../types/tasks-types';
+import Task from '../task/task';
 import dogImage from '../../assets/dog.png';
+import { FC } from 'react';
 
 interface TaskListProps {
   tasks: ITask[];
   onTaskCheck: (index: number) => void;
 }
 
-function TaskList({ tasks, onTaskCheck }: TaskListProps) {
+const TaskList: FC<TaskListProps> = ({ tasks, onTaskCheck }) => {
   return tasks.length > 0 ? (
     <div className='task-list'>
-      {tasks.map((task, i) => (
-        <Task key={i} task={task} onTaskCheck={() => onTaskCheck(i)} />
+      {tasks.map((task, index) => (
+        <Task key={index} task={task} onTaskCheck={() => onTaskCheck(index)} />
       ))}
     </div>
   ) : (
@@ -21,6 +22,6 @@ function TaskList({ tasks, onTaskCheck }: TaskListProps) {
       <img src={dogImage} alt='No tasks' />
     </div>
   );
-}
+};
 
 export default TaskList;
