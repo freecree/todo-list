@@ -1,24 +1,29 @@
 import './task-board.scss';
 import { FC, useState } from 'react';
-import { ITask } from '../../types/tasks-types';
 import TaskList from '../task-list/task-list';
 import Input from '../ui/input/input';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+import { addTask, updateTaskCheck } from '../../slices/tasks-slice';
 
 const TaskBoard: FC = () => {
   const [taskValue, setTaskValue] = useState('');
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [isTaskValid, setIsTaskValid] = useState(true);
+
+  const dispatch = useAppDispatch();
+  const tasks = useAppSelector((state) => state.tasksReducer.tasks);
 
   const handleAddTask = (value: string): void => {
-    setTaskValue('');
-    setTasks((prevTasks) => [...prevTasks, { value, checked: false }]);
+    if (value.length < 3) {
+      setIsTaskValid(false);
+    } else {
+      setIsTaskValid(true);
+      setTaskValue('');
+      dispatch(addTask(value));
+    }
   };
 
   const handleCheckTask = (index: number): void => {
-    setTasks((prevTasks) => [
-      ...prevTasks.slice(0, index),
-      { ...prevTasks[index], checked: !prevTasks[index].checked },
-      ...prevTasks.slice(index + 1),
-    ]);
+    dispatch(updateTaskCheck(index));
   };
 
   return (
@@ -28,6 +33,11 @@ const TaskBoard: FC = () => {
         onChange={setTaskValue}
         onSubmit={handleAddTask}
       />
+      {!isTaskValid && (
+        <p className='error-message'>
+          Length of task must be equal to or more than 3 characters
+        </p>
+      )}
       <TaskList onTaskCheck={handleCheckTask} tasks={tasks} />
     </div>
   );

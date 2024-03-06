@@ -1,3 +1,8 @@
+@import '@variables';
 .taskboard {
   margin-top: 50px;
+}
+.error-message {
+  font-size: 14px;
+  color: $error-color;
 }

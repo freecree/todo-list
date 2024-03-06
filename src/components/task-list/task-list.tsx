@@ -18,7 +18,7 @@ const TaskList: FC<TaskListProps> = ({ tasks, onTaskCheck }) => {
     </div>
   ) : (
     <div className='no-tasks'>
-      <p>Задача пока нет </p>
+      <p>No tasks yet</p>
       <img src={dogImage} alt='No tasks' />
     </div>
   );

@@ -8,7 +8,7 @@ interface CheckboxProps {
 const Checkbox: FC<CheckboxProps> = ({ isChecked }) => {
   return (
     <label className='checkbox-wrapper'>
-      <input checked={isChecked} type='checkbox' />
+      <input checked={isChecked} type='checkbox' readOnly />
       <span
         onClick={(event) => {
           event.stopPropagation();
