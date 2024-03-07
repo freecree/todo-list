@@ -6,14 +6,18 @@ import { FC } from 'react';
 
 interface TaskListProps {
   tasks: ITask[];
-  onTaskCheck: (index: number) => void;
+  onTaskCheck: (id: string) => void;
 }
 
 const TaskList: FC<TaskListProps> = ({ tasks, onTaskCheck }) => {
   return tasks.length > 0 ? (
     <div className='task-list'>
-      {tasks.map((task, index) => (
-        <Task key={index} task={task} onTaskCheck={() => onTaskCheck(index)} />
+      {tasks.map((task) => (
+        <Task
+          key={task.id}
+          task={task}
+          onTaskCheck={() => onTaskCheck(task.id)}
+        />
       ))}
     </div>
   ) : (

@@ -10,6 +10,9 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh", "prettier"],
   rules: {
+    // fix bug with exporting enums
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },

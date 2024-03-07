@@ -6,3 +6,21 @@
   font-size: 14px;
   color: $error-color;
 }
+
+.top-bar {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  display: flex;
+  gap: 10px;
+  & > .uncompleted span {
+    color: $error-color;
+  }
+  & > .completed span {
+    color: $green-color;
+  }
+}

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { ITask } from '../types/tasks-types';
 
@@ -15,11 +15,15 @@ export const tasksSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action: PayloadAction<string>) => {
-      state.tasks.push({ value: action.payload, checked: false });
+      const id = nanoid();
+      state.tasks.push({ value: action.payload, checked: false, id });
     },
-    updateTaskCheck: (state, action: PayloadAction<number>) => {
-      const index = action.payload;
-      state.tasks[index].checked = !state.tasks[index].checked;
+    updateTaskCheck: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+      const prevTask = state.tasks.find((task) => id === task.id);
+      if (prevTask) {
+        prevTask.checked = !prevTask.checked;
+      }
     },
   },
 });
