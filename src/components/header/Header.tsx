@@ -1,11 +1,12 @@
+import { FC } from 'react';
 import './header.scss';
 
-function Header() {
+const Header: FC = () => {
   return (
     <header className='header'>
       <div className='wrapper'>Todo List</div>
     </header>
   );
-}
+};
 
 export default Header;

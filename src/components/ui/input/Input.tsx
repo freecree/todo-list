@@ -1,5 +1,5 @@
 import './input.scss';
-import { KeyboardEvent } from 'react';
+import { FC, KeyboardEvent } from 'react';
 
 interface InputProps {
   value: string;
@@ -7,11 +7,11 @@ interface InputProps {
   onSubmit: (value: string) => void;
 }
 
-function Input({ value, onChange, onSubmit }: InputProps) {
-  const isValid = () => {
+const Input: FC<InputProps> = ({ value, onChange, onSubmit }) => {
+  const isValid = (): boolean => {
     return value.trim().length > 0;
   };
-  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter' && isValid()) {
       onSubmit(value.trim());
     }
@@ -19,11 +19,11 @@ function Input({ value, onChange, onSubmit }: InputProps) {
   return (
     <input
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(event) => onChange(event.target.value)}
       onKeyDown={handleKeyPress}
       className='input'
       type='text'
     />
   );
-}
+};
 export default Input;
