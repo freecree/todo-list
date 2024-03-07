@@ -8,9 +8,8 @@ interface TaskProps {
   onTaskCheck: () => void;
 }
 const Task: FC<TaskProps> = ({ task, onTaskCheck }) => {
-  const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
+  const handleClick = (): void => {
     onTaskCheck();
-    event.stopPropagation();
   };
   return (
     <div
